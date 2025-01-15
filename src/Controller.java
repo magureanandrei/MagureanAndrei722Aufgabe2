@@ -81,6 +81,21 @@ public class Controller {
         return patienten;
     }
 
+    public List<Medikamente> sortMedikaments2ways(Integer patientID, String wayofsort) {
+        List<Medikamente> medikamente = new ArrayList<>();
 
+        for(Patienten p : patientenRepo.getAll()) {
+            if(p.getId()==patientID) {
+                medikamente.addAll(p.getListofMedikamente());
+                if(wayofsort.equalsIgnoreCase("aufsteigend")) {
+                    medikamente.sort((p1,p2)->p1.getPreis().compareTo(p2.getPreis()));
+                }
+                else {
+                    medikamente.sort((p1,p2)->p2.getPreis().compareTo(p1.getPreis()));
+                }
+            }
+        }
+        return medikamente;
+    }
 
 }
