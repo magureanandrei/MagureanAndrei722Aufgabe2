@@ -13,7 +13,7 @@ public class MedikamenteRepo {
         medikamente.put(obj.getName(), obj);
     }
 
-    public void remove(Integer id) {
+    public void remove(String id) {
         medikamente.remove(id);
     }
 
@@ -21,7 +21,7 @@ public class MedikamenteRepo {
         medikamente.replace(obj.getName(), obj);
     }
 
-    public Medikamente get(Integer getId) {
+    public Medikamente get(String getId) {
         return medikamente.get(getId);
     }
 
