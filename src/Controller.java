@@ -3,6 +3,7 @@ import Modelle.Patienten;
 import Repos.MedikamenteRepo;
 import Repos.PatientenRepo;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -65,6 +66,21 @@ public class Controller {
         return patientenRepo.getAll().stream().filter(patient -> patient.getDiagnose().equalsIgnoreCase(Diagnosis)).collect(Collectors.toList());
 
     }
+
+    public List<Patienten> showPatientsbyKrankheit(String Krankheit) {
+
+        List<Patienten> patienten = new ArrayList<>();
+        for(Patienten p : patientenRepo.getAll()) {
+            for(Medikamente m : p.getListofMedikamente()) {
+                if(m.getKrankheit().equalsIgnoreCase(Krankheit)) {
+                    patienten.add(p);
+                    break;
+                }
+            }
+        }
+        return patienten;
+    }
+
 
 
 }
