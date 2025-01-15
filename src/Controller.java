@@ -47,7 +47,7 @@ public class Controller {
         return medikamenteRepo.getAll();
     }
 
-    public void updateMedikament(Integer id,Medikamente medikamente) {
+    public void updateMedikament(String id,Medikamente medikamente) {
         for(Medikamente m : medikamenteRepo.getAll()) {
             if(m.getName().equals(medikamente.getName())) {
                 medikamenteRepo.update(m);
