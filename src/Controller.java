@@ -4,6 +4,7 @@ import Repos.MedikamenteRepo;
 import Repos.PatientenRepo;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Controller {
 
@@ -59,4 +60,11 @@ public class Controller {
             }
         }
     }
+
+    public List<Patienten> filterPatientsbyDiagnosis(String Diagnosis) {
+        return patientenRepo.getAll().stream().filter(patient -> patient.getDiagnose().equalsIgnoreCase(Diagnosis)).collect(Collectors.toList());
+
+    }
+
+
 }
